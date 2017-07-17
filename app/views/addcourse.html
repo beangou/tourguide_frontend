@@ -1,0 +1,48 @@
+<form name="courseForm" ng-submit="course()" novalidate>
+  <div>
+    <label for="title_1">书名</label>
+    <select id="select_1" class="form-control selectpicker">
+    </select>
+    <input name="title1" class="form-control"  style="display:none" type="subject" id="title_1" placeholder="书名">
+    <input type="button" id="buttion_1" class="btn btn-primary" ng-click="toSaveOrSave(1)" value="+">
+    <input type="button" id="buttion_cancel_1" class="btn btn-primary" style="display:none" ng-click="cancel(1)" value="cancel">
+  </div>
+  <div>
+    <label for="title_2">章名</label>
+    <select id="select_2" class="form-control selectpicker">
+    </select>
+    <input name="title2" class="form-control"  style="display:none" type="subject" id="title_2" placeholder="章名">
+    <input type="button" id="buttion_2" class="btn btn-primary" ng-click="toSaveOrSave(2)" value="+">
+    <input type="button" id="buttion_cancel_2" class="btn btn-primary" style="display:none" ng-click="cancel(2)" value="cancel">
+  </div>
+  <div>
+    <label for="title_3">节名</label>
+    <select id="select_3" class="form-control selectpicker">
+    </select>
+    <input name="title3" class="form-control"  style="display:none" type="subject" id="title_3" placeholder="节名">
+    <input type="button" id="buttion_3" class="btn btn-primary" ng-click="toSaveOrSave(3)" value="+">
+    <input type="button" id="buttion_cancel_3" class="btn btn-primary" style="display:none" ng-click="cancel(3)" value="cancel">
+  </div>
+  <div>
+    <label for="title_4">小节名</label>
+    <select id="select_4" class="form-control selectpicker">
+    </select>
+    <input name="title4" class="form-control"  style="display:none" type="subject" id="title_4" placeholder="小节名">
+    <input type="button" id="buttion_4" class="btn btn-primary" ng-click="toSaveOrSave(4)" value="+">
+    <input type="button" id="buttion_cancel_4" class="btn btn-primary" style="display:none" ng-click="cancel(4)" value="cancel">
+  </div>
+  <div>
+    <label for="content">小节内容</label>
+    <textarea name="content" rows="10" class="form-control" id="content" placeholder="小节内容" ng-model="content"></textarea>
+    <input type="button" id="button_content_save" class="btn btn-primary" ng-click="updateContent()" value="save">
+  </div>
+
+</form>
+
+
+<div class="fr-view">
+  Here comes the HTML edited with the Froala rich text editor.
+</div>
+
+
+

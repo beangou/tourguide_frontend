@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+
+    <!-- Include Font Awesome. -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Include Editor style. -->
+    <link href="styles/css/froala_editor.min.css" rel="stylesheet" type="text/css" />
+    <link href="styles/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Include Code Mirror style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+
+    <!-- Include Editor Plugins style. -->
+    <link rel="stylesheet" href="styles/css/plugins/char_counter.css">
+    <link rel="stylesheet" href="styles/css/plugins/code_view.css">
+    <link rel="stylesheet" href="styles/css/plugins/colors.css">
+    <link rel="stylesheet" href="styles/css/plugins/emoticons.css">
+    <link rel="stylesheet" href="styles/css/plugins/file.css">
+    <link rel="stylesheet" href="styles/css/plugins/fullscreen.css">
+    <link rel="stylesheet" href="styles/css/plugins/image.css">
+    <link rel="stylesheet" href="styles/css/plugins/image_manager.css">
+    <link rel="stylesheet" href="styles/css/plugins/line_breaker.css">
+    <link rel="stylesheet" href="styles/css/plugins/quick_insert.css">
+    <link rel="stylesheet" href="styles/css/plugins/table.css">
+    <link rel="stylesheet" href="styles/css/plugins/video.css">
+    <link href="styles/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+
+
+  </head>
+  <body ng-app="tourguideFrontendApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="#/">travel</a>
+
+          </div>
+
+          <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="MenuCtrl">
+            <ul class="nav navbar-nav pull-right" ng-hide="isLoggedIn">
+              <li><a ng-href="/#/signup">Sign up!</a></li>
+              <li><a ng-href="/#/login">Login</a></li>
+            </ul>
+            <div class="btn-group pull-right acc-button" ng-show="isLoggedIn">
+              <button type="button" class="btn btn-default">{{ username }}</button>
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a ng-href="/#/dashboard">scenery</a></li>
+                <!--<li><a ng-href="/#/questions">题目一览</a></li>-->
+                <!--<li><a ng-href="/#/addcourse">增加课程</a></li>-->
+                <!--<li><a ng-href="/#/addquestion">增加题目</a></li>-->
+                <li class="divider"></li>
+                <li><a href="#" ng-click="logout()">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="container" ng-controller="AlertsCtrl">
+      <div>
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{ alert.msg }}</alert>
+      </div>
+      <div ng-view=""></div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      </div>
+    </div>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/angular-froala.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/signup.js"></script>
+        <script src="scripts/services/alerts.js"></script>
+        <script src="scripts/controllers/alerts.js"></script>
+        <script src="scripts/controllers/dashboard.js"></script>
+        <script src="scripts/services/user.js"></script>
+        <script src="scripts/controllers/menu.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/addpost.js"></script>
+        <script src="scripts/controllers/viewpost.js"></script>
+        <script src="scripts/controllers/addcourse.js"></script>
+        <script src="scripts/controllers/viewcourse.js"></script>
+        <script src="scripts/controllers/viewcoursecontent.js"></script>
+        <script src="scripts/controllers/addquestion.js"></script>
+        <script src="scripts/controllers/viewquestions.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/addscenery.js"></script>
+        <script src="scripts/controllers/viewscenery.js"></script>
+        <!-- endbuild -->
+
+
+    <!-- Include jQuery. -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <!-- Include JS files. -->
+    <script type="text/javascript" src="scripts/js/froala_editor.min.js"></script>
+
+    <!-- Include Code Mirror. -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
+
+    <!-- Include Plugins. -->
+    <script type="text/javascript" src="scripts/js/plugins/align.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/char_counter.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/code_beautifier.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/code_view.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/colors.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/emoticons.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/entities.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/file.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/font_family.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/font_size.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/fullscreen.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/image.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/image_manager.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/inline_style.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/line_breaker.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/link.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/lists.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/paragraph_format.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/paragraph_style.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/quick_insert.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/quote.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/table.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/save.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/url.min.js"></script>
+    <script type="text/javascript" src="scripts/js/plugins/video.min.js"></script>
+
+    <!-- Include Language file if we want to use it. -->
+    <script type="text/javascript" src="scripts/js/languages/ro.js"></script>
+
+  </body>
+</html>

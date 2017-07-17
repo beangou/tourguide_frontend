@@ -1,0 +1,10 @@
+<h4>我的章节</h4>
+<div ng-hide="courses.length">没有目录了. <a ng-href="/#/addcourse">去增加教材</a></div>
+<div class="panel panel-default" ng-repeat="course in courses">
+  <div class="panel-body">
+    <a ng-href="/#/viewcourse{{ course.type == 4 ? 'content' : ''}}/{{ course.id }}">{{ course.title }}</a>
+    <md-button class="md-primary md-raised" ng-click="showPrompt($event, this)"  >编辑</md-button>
+    <input type="button" class="btn btn-primary" ng-click="delete(this)" value="删除">
+    <span class="badge"></span>
+  </div>
+</div>

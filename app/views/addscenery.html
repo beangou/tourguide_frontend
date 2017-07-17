@@ -1,0 +1,39 @@
+<form name="courseForm" ng-submit="addScenery()" novalidate>
+  <div>
+    <label for="name">名称</label>
+    <input name="name" class="form-control" type="subject" id="name" placeholder="名称">
+  </div>
+  <div>
+    <label for="type">链接类型</label>
+    <select id="type" name="type" class="form-control selectpicker">
+      <option value="Link">Link</option>
+      <option value="Article">Article</option>
+    </select>
+  </div>
+  <div>
+    <label for="link">链接</label>
+    <input name="link" class="form-control"  type="subject" id="link">
+  </div>
+
+  <div>
+    <label for="icon">景点图标</label>
+    <input name="icon" class="form-control" type="subject" id="icon">
+  </div>
+  <div>
+    <label for="type">景点位置</label>
+    <input type="radio" name="isInternal" value="true">国内
+    <input type="radio" name="isInternal" value="false">国外
+  </div>
+  <div>
+    <select id="select_address" class="form-control selectpicker">
+    </select>
+  </div>
+
+  <div>
+    <label for="content">景点介绍</label>
+    <textarea name="content" rows="10" class="form-control" id="content" placeholder="景点介绍" ng-model="content"></textarea>
+    <!--<input type="button" id="button_content_save" class="btn btn-primary" ng-click="addScenery()" value="save">-->
+    <button type="submit" class="btn btn-primary">保存</button>
+  </div>
+
+</form>

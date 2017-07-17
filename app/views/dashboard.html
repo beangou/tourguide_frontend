@@ -1,0 +1,9 @@
+<h4>景点管理</h4>
+<div ng-hide="sceneries.length">没有景点. <a ng-href="/#!/addscenery">去增加景点</a></div>
+<div><a ng-href="/#!/addscenery">去增加景点</a></div>
+<div class="panel panel-default" ng-repeat="scenery in sceneries">
+  <div class="panel-body">
+    * <a ng-href="/#!/viewscenery/{{ scenery.id }}">{{ scenery.name }}</a>
+    <span class="badge"></span>
+  </div>
+</div>

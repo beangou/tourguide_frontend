@@ -1,0 +1,23 @@
+<div ng-app="tourguideFrontendApp" ng-controller="ViewquestionsCtrl">
+<h4>题目一览</h4>
+<div ng-hide="questions.length">没有题目了. </div>
+<a ng-href="/#/addquestion">去增加题目</a>
+<div class="panel panel-default" ng-repeat="question in questions">
+  <div class="panel-body">
+    <span>{{ question.title }}</span>
+    <div ng-repeat="option in question.options">
+      <span>{{option.content}}</span>
+    </div>
+    <div>
+      答案:  &nbsp;&nbsp;<span>{{question.answers}}</span>
+    </div>
+    <div>
+      解析:  &nbsp;&nbsp;<span>{{question.analysis}}</span>
+    </div>
+  </div>
+</div>
+
+<div ng-controller="ViewquestionsCtrl">
+  <ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="5" ng-click="pageChanged()"></ul>
+</div>
+</div>

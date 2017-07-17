@@ -1,0 +1,79 @@
+
+<form name="postForm" ng-submit="addQuestion()" novalidate class="tab-form-demo">
+
+  请选择题目所属章:
+  <select id="select_book" class="form-control selectpicker">
+    <option value="1">《全国导游基础知识》</option>
+    <option value="2">《政策法律与法规》</option>
+    <option value="3">《导游业务》</option>
+    <option value="4">《景点介绍》</option>
+  </select>
+  <select id="select_chapter" class="form-control">
+  </select>
+
+  <br>
+  <uib-tabset active="activeForm">
+    <uib-tab index="0" heading="单选题" select="selectType(1)" class="singleType">
+      <div>
+        <input name="title" class="form-control" type="subject" id="single_title" placeholder="题目">
+      </div>
+      <div style="margin-top:3%">
+        <label>选项:</label>
+        <input name="option" class="form-control single_option" type="text" id="single_optionA" value="A.">
+        <input name="option" class="form-control single_option" type="text" id="single_optionB" value="B.">
+        <input name="option" class="form-control single_option" type="text" id="single_optionC" value="C.">
+        <input name="option" class="form-control single_option" type="text" id="single_optionD" value="D.">
+      </div>
+      <div style="margin-top:3%">
+        <label>答案:&nbsp;&nbsp;</label>
+        <input type="checkbox" name="single_answer" class="answer" value="A"/> A &nbsp;&nbsp;<input name="single_answer" type="checkbox" class="answer" value="B"/> B &nbsp;&nbsp;
+        <input type="checkbox" name="single_answer" class="answer" value="C"/> C &nbsp;&nbsp;<input name="single_answer" type="checkbox" class="answer" value="D"/> D
+      </div>
+      <div style="margin-top:3%">
+        <label>答案解析:</label>
+        <textarea name="analysis" class="form-control" type="subject" id="single_analysis" placeholder="答案解析"></textarea>
+      </div>
+    </uib-tab>
+
+    <uib-tab index="1" heading="多选题" select="selectType(2)" class="multipleType">
+      <div>
+        <input name="title" class="form-control" type="subject" id="multiple_title" placeholder="题目">
+      </div>
+      <div style="margin-top:3%">
+        <label>选项:</label>
+        <input name="option" class="form-control multiple_option" type="text" id="multiple_optionA" value="A.">
+        <input name="option" class="form-control multiple_option" type="text" id="multiple_optionB" value="B.">
+        <input name="option" class="form-control multiple_option" type="text" id="multiple_optionC" value="C.">
+        <input name="option" class="form-control multiple_option" type="text" id="multiple_optionD" value="D.">
+      </div>
+      <div style="margin-top:3%">
+        <label>答案:&nbsp;&nbsp;</label>
+        <input type="checkbox" name="multiple_answer" class="answer" value="A"/> A &nbsp;&nbsp;<input name="multiple_answer" type="checkbox" class="answer" value="B"/> B &nbsp;&nbsp;
+        <input type="checkbox" name="multiple_answer" class="answer" value="C"/> C &nbsp;&nbsp;<input name="multiple_answer" type="checkbox" class="answer" value="D"/> D
+      </div>
+      <div style="margin-top:3%">
+        <label>答案解析:</label>
+        <textarea name="analysis" class="form-control" type="subject" id="multiple_analysis" placeholder="答案解析"></textarea>
+      </div>
+    </uib-tab>
+
+    <uib-tab index="2" heading="判断题" select="selectType(3)" class="judgmentType">
+      <div>
+        <input name="title" class="form-control" type="subject" id="judgment_title" placeholder="题目">
+      </div>
+      <div style="margin-top:3%">
+        <label>答案:&nbsp;&nbsp;</label>
+        <input type="radio" name="judgment_answer" class="answer" value="1" checked/> 正确 &nbsp;&nbsp;<input name="judgment_answer" type="radio" class="answer" value="0"/> 错误 &nbsp;&nbsp;
+      </div>
+      <div style="margin-top:3%">
+        <label>答案解析:</label>
+        <textarea name="analysis" class="form-control" type="subject" id="judgment_analysis" placeholder="答案解析"></textarea>
+      </div>
+    </uib-tab>
+
+  </uib-tabset>
+
+  <div style="margin-top:3%">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
