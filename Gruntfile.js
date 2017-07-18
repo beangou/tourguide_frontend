@@ -132,7 +132,7 @@ module.exports = function (grunt) {
         {
           context: '/backend', // the context of the data service
           host: 'localhost', // wherever the data service is running
-          port: 8081, // the port that the data service is running on
+          port: 80, // the port that the data service is running on
           changeOrigin: false
         }
       ]
