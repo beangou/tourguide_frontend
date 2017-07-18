@@ -5,6 +5,8 @@
   <div class="panel panel-default" ng-repeat="scenery in sceneries">
     <div class="panel-body">
       * <img src="{{ scenery.icon }}" width="5%" height="5%"> <a ng-href="/#!/viewscenery/{{ scenery.id }}">{{ scenery.name }}</a>
+      <md-button class="btn btn-primary" ng-click="editScenery($event, this)"  >编辑</md-button>
+      <input type="button" class="btn btn-danger" ng-click="deleteScenery(this)" value="删除">
       <span class="badge"></span>
     </div>
   </div>

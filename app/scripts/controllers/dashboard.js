@@ -44,6 +44,34 @@ angular.module('tourguideFrontendApp')
         });
     };
 
+    $scope.editScenery = function (event, ele) {
+      window.location.href="/#!/editscenery/" + ele.scenery.id;
+    }
+
+    $scope.deleteScenery = function (ele) {
+      alert(ele.scenery.id);
+      if(confirm("确定要删除该景点吗？")) {
+        $http.post('/backend/scenery/delete', {id: ele.scenery.id})
+          .catch(function onError(response) {
+            var data = response.data;
+            var status = response.status;
+            alertService.add('danger', data.message);
+          })
+          .then(function onSuccess(response) {
+            var data = response.data;
+            var status = response.status;
+            console.log("data.code=" + data.code);
+            console.log("status=" + status);
+            if (status == 200 && data.code ==  0) {
+              alertService.add('danger', data.message);
+              window.location.href="/#/dashboard?currentPage="+$scope.currentPage;
+            } else {
+              alertService.add('danger', data.message);
+            }
+          });
+      }
+    }
+
     $scope.pageChanged = function() {
       window.location.href="/#/dashboard?currentPage="+$scope.currentPage;
     }

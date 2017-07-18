@@ -74,6 +74,10 @@ angular
       templateUrl: 'views/viewscenery.html',
       controller: 'ViewsceneryCtrl'
     })
+    .when('/editscenery/:sceneryId', {
+      templateUrl: 'views/editscenery.html',
+      controller: 'EditsceneryCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });

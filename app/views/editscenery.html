@@ -1,0 +1,39 @@
+<form name="courseForm" ng-submit="updateScenery()" novalidate ng-show="scenery">
+  <div>
+    <label for="name">名称</label>
+    <input name="name" class="form-control" type="subject" id="name" value="{{scenery.name}}">
+  </div>
+  <div>
+    <label for="type">链接类型</label>
+    <select id="type" name="type" class="form-control selectpicker">
+      <option value="Link" selected='{{scenery.type == "Link" ? "true" : "false"}}'>Link</option>
+      <option value="Article" selected='{{scenery.type == "Article" ? "true" : "false"}}'>Article</option>
+    </select>
+  </div>
+  <div>
+    <label for="link">链接</label>
+    <input name="link" class="form-control"  type="subject" id="link" value="{{scenery.link}}">
+  </div>
+
+  <div>
+    <label for="icon">景点图标</label>
+    <input name="icon" class="form-control" type="subject" id="icon" value="{{scenery.icon}}">
+  </div>
+  <div>
+    <label for="type">景点位置</label>
+    <input type="radio" id="isInternal_inner" name="isInternal" value="true">国内
+    <input type="radio" id="isInternal_outer" name="isInternal" value="false">国外
+  </div>
+  <div>
+    <select id="select_address" class="form-control selectpicker">
+    </select>
+  </div>
+
+  <div>
+    <label for="content">景点介绍</label>
+    <textarea name="content" rows="10" class="form-control" id="content" placeholder="景点介绍" ng-model="content"></textarea>
+    <!--<input type="button" id="button_content_save" class="btn btn-primary" ng-click="addScenery()" value="save">-->
+    <button type="submit" class="btn btn-primary">保存</button>
+  </div>
+
+</form>
