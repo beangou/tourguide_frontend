@@ -8,11 +8,17 @@
  * Controller of the clientApp
  */
 angular.module('tourguideFrontendApp')
-  .controller('DashboardCtrl', function ($scope, $log, $http, alertService, $location) {
+  .controller('DashboardCtrl', function ($scope, $log, $http, $routeParams, alertService, $location) {
+
+    var pageIndex = 1;
+
+    if($routeParams.currentPage) {
+      pageIndex = $routeParams.currentPage;
+    }
 
     $scope.loadSceneries = function() {
       var getObject = {
-        page : 0,
+        page : pageIndex,
         size : 10
       };
       $http.post('/backend/scenery/list', getObject)
@@ -35,9 +41,9 @@ angular.module('tourguideFrontendApp')
           console.log("data.code=" + data.code);
           console.log("status=" + status);
           if (status == 200 && data.code ==  0) {
-            $scope.sceneries = data.data;
-            $scope.totalItems = 100;
-            $scope.currentPage = 2;
+            $scope.sceneries = data.data.records;
+            $scope.totalItems = data.data.totalCount;
+            $scope.currentPage = data.data.page;
           } else {
             alertService.add('danger', data.message);
           }
@@ -49,8 +55,7 @@ angular.module('tourguideFrontendApp')
     }
 
     $scope.deleteScenery = function (ele) {
-      alert(ele.scenery.id);
-      if(confirm("确定要删除该景点吗？")) {
+      if(confirm("确定要删除'"+ele.scenery.name+"'景点吗？")) {
         $http.post('/backend/scenery/delete', {id: ele.scenery.id})
           .catch(function onError(response) {
             var data = response.data;
@@ -64,7 +69,8 @@ angular.module('tourguideFrontendApp')
             console.log("status=" + status);
             if (status == 200 && data.code ==  0) {
               alertService.add('danger', data.message);
-              window.location.href="/#/dashboard?currentPage="+$scope.currentPage;
+              location.reload();
+              // window.location.href="/#!/dashboard?currentPage="+$scope.currentPage;
             } else {
               alertService.add('danger', data.message);
             }
@@ -73,7 +79,7 @@ angular.module('tourguideFrontendApp')
     }
 
     $scope.pageChanged = function() {
-      window.location.href="/#/dashboard?currentPage="+$scope.currentPage;
+      window.location.href="/#!/dashboard?currentPage="+$scope.currentPage;
     }
 
     $scope.loadSceneries();
