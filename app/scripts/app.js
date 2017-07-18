@@ -17,7 +17,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'froala'
+    'froala',
+    'ui.bootstrap'
   ])
 .config(function ($routeProvider) {
   $routeProvider

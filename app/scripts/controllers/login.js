@@ -77,6 +77,8 @@ angular.module('tourguideFrontendApp')
           if(data.code == 0) {
             userService.username = data.data;
             $location.path('/dashboard');
+          } else {
+            alertService.add('danger', data.data);
           }
         });
     };
