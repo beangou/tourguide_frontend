@@ -4,9 +4,9 @@
   <div><a ng-href="/#!/addscenery">去增加景点</a></div>
   <div class="panel panel-default" ng-repeat="scenery in sceneries">
     <div class="panel-body">
-      * <img src="{{ scenery.icon }}" width="5%" height="5%"> <a ng-href="/#!/viewscenery/{{ scenery.id }}">{{ scenery.name }}</a>
-      <md-button class="btn btn-primary" ng-click="editScenery($event, this)"  >编辑</md-button>
-      <input type="button" class="btn btn-danger" ng-click="deleteScenery(this)" value="删除">
+      <img src="{{ scenery.icon }}" width="5%" height="5%"> <a ng-href="/#!/viewscenery/{{ scenery.id }}">{{ scenery.name }}</a>
+      <md-button class="btn btn-primary" ng-click="editScenery($event, this)" style="margin-left: 50%" >编辑</md-button>
+      <input type="button" class="btn btn-danger" ng-click="deleteScenery(this)" style="margin-left: 2%" value="删除">
       <span class="badge"></span>
     </div>
   </div>
