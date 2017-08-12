@@ -37,4 +37,31 @@ angular.module('tourguideFrontendApp')
       };
 
       $scope.viewContent();
+
+    $scope.editScenery = function (id) {
+      window.location.href="/#!/editscenery/" + id;
+    }
+
+    $scope.deleteScenery = function (scenery) {
+      if(confirm("确定要删除'"+scenery.name+"'景点吗？")) {
+        $http.post('/backend/scenery/delete', {id: scenery.id})
+          .catch(function onError(response) {
+            var data = response.data;
+            alertService.add('danger', data.message);
+          })
+          .then(function onSuccess(response) {
+            var data = response.data;
+            var status = response.status;
+            console.log("data.code=" + data.code);
+            console.log("status=" + status);
+            if (status == 200 && data.code ==  0) {
+              alertService.add('danger', data.message);
+              window.location.href="/#/dashboard";
+            } else {
+              alertService.add('danger', data.message);
+            }
+          });
+      }
+    }
+
   });

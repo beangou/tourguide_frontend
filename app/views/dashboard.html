@@ -1,7 +1,7 @@
 <div ng-app="tourguideFrontendApp" ng-controller="DashboardCtrl">
   <h4>景点管理</h4>
-  <div ng-hide="sceneries.length">没有景点. <a ng-href="/#!/addscenery">去增加景点</a></div>
-  <div><a ng-href="/#!/addscenery">去增加景点</a></div>
+  <!--<div><a ng-href="/#!/addscenery">去增加景点</a></div>-->
+  <button class="btn btn-primary" onclick="location='/#!/addscenery'">去增加景点</a></button>
   <div class="panel panel-default" ng-repeat="scenery in sceneries">
     <div class="panel-body">
       <img src="{{ scenery.icon }}" width="4%" height="4%"> <a ng-href="/#!/viewscenery/{{ scenery.id }}">{{ scenery.name }}</a>
